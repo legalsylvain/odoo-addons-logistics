@@ -30,12 +30,16 @@ class TestAbstract(TransactionCase):
         self.Order = self.env["joint.buying.purchase.order"]
         self.OrderLine = self.env["joint.buying.purchase.order.line"]
         self.JointBuyingWizardCreateOrder = self.env["joint.buying.wizard.create.order"]
+        self.JointBuyingWizardUpdateOrderGrouped = self.env[
+            "joint.buying.wizard.update.order.grouped"
+        ]
 
         self.company_ELD = self.env.ref("joint_buying_base.company_ELD")
         self.company_CDA = self.env.ref("joint_buying_base.company_CDA")
         self.company_CHE = self.env.ref("joint_buying_base.company_CHE")
         self.company_3PP = self.env.ref("joint_buying_base.company_3PP")
         self.company_LSE = self.env.ref("joint_buying_base.company_LSE")
+        self.company_1GG = self.env.ref("joint_buying_base.company_1GG")
 
         self.salaison_devidal = self.JointBuyingResPartner.browse(
             self.env.ref("joint_buying_base.supplier_salaison_devidal").id
@@ -55,6 +59,9 @@ class TestAbstract(TransactionCase):
         )
         self.product_LSE_patatoe_agila = self.env.ref(
             "joint_buying_product.product_LSE_patatoe_agila"
+        )
+        self.grouped_order_ronzon_past = self.env.ref(
+            "joint_buying_product.grouped_order_ronzon_past"
         )
 
     def _create_order_grouped_salaison_devidal_by_wizard(self, user=False):
